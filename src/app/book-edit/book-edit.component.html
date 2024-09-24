@@ -1,0 +1,96 @@
+<app-general-navbar></app-general-navbar>
+<div class="form-wrapper">
+    <!-- Replace navbar fragment with Angular component -->
+
+
+    <div *ngIf = "book" class="edit-form-wrapper">
+        <h2>Edit Book</h2>
+
+        <!-- Display unchangeable book details -->
+        <div class="unchangeable-settings">
+            <dl>
+                <dt>Book Id: </dt>
+                <dd>{{ book.id }}</dd>
+
+                <dt>Adding Date : </dt>
+                <dd>{{ book.addingDate }}</dd>
+            </dl>
+        </div>
+
+        <!-- Form to edit book details -->
+        <form (ngSubmit)="onSubmit(book)">
+            <div class="input-box">
+                <label for="name">Book Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    [(ngModel)]="book.name"
+                    name="name"
+                    placeholder="Book Name"
+                    required
+                />
+            </div>
+
+            <div class="input-box">
+                <label for="blurb">Blurb</label>
+                <textarea
+                    id="blurb"
+                    [(ngModel)]="book.blurb"
+                    name="blurb"
+                    placeholder="Blurb"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="input-box">
+                <label for="rentalPrice">Rental Price</label>
+                <input
+                    type="number"
+                    id="rentalPrice"
+                    [(ngModel)]="book.rentalPrice"
+                    name="rentalPrice"
+                    placeholder="Rental Price"
+                    required
+                />
+            </div>
+
+            <div class="input-box">
+                <label for="writer">Writer Name</label>
+                <input
+                    type="text"
+                    id="writer"
+                    [(ngModel)]="book.writer"
+                    name="writer"
+                    placeholder="Writer Name"
+                    required
+                />
+            </div>
+
+            <div class="input-box">
+                <label for="genre">Genre</label>
+                <input
+                    type="text"
+                    id="genres"
+                    [(ngModel)]="genreString"
+                    name="genres"
+                    placeholder="Genres"
+                    required
+                />
+            </div>
+
+            <!-- Save and Delete button section -->
+            <div class="save-delete-button-wrapper">
+                <!-- Delete button -->
+                <button type="button" class="delete-btn" (click)="deleteBook()">
+                    Delete
+                </button>
+
+                <!-- Save button -->
+                <button type="submit" class="save-btn">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Replace footer fragment with Angular component -->
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,50 @@
+<app-general-navbar></app-general-navbar>
+    <div class="wrapper">
+         <!-- Replacing Thymeleaf fragment with Angular component -->
+        
+        <div *ngIf = "employees" class="table-wrapper">
+            <h2>Employee Table</h2>
+            <br>
+
+            <div class="search-wrapper">
+                <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search Employee">
+                <button type="button" (click)="onSearch(searchText)">Search</button>
+            </div>
+            <div class="table-add-button">
+                <a routerLink="/employee/add">
+                    <button type="button">Add Employee</button>
+                </a>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Password</th>
+                        <th>Employee Name</th>
+                        <th>Lastname</th>
+                        <th>Registration Date</th>
+                        <th>Daily Wage</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees">
+                        <td>{{ employee.id }}</td>
+                        <td>{{ employee.password }}</td>
+                        <td>{{ employee.firstName }}</td>
+                        <td>{{ employee.lastName }}</td>
+                        <td>{{ employee.registrationDate }}</td> <!-- Angular date pipe -->
+                        <td>{{ employee.dailyWage }}</td>
+                        <td>{{ employee.role }}</td>
+                        <td>
+                            <a [routerLink]="['/employee/edit', employee.id]">
+                                <button type="button" class="image-btn"><img src="assets/images/editing.png" alt="Edit"></button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   <app-footer></app-footer> <!-- Replacing Thymeleaf fragment with Angular component -->

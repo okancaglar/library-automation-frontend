@@ -1,0 +1,64 @@
+<div class="wrapper">
+    <!-- Navbar Fragment -->
+    <app-general-navbar></app-general-navbar>
+    
+    <div class="table-wrapper">
+        <h2>Book Table</h2>
+        <br>
+
+        <!-- Search Input -->
+        <div class="search-wrapper">
+            <input type="text" name="search" placeholder="Search Book" [(ngModel)]="searchTerm">
+            <button type="button" (click)="searchBook(searchTerm)">Search</button>
+        </div>
+
+        <!-- Add Book Button -->
+        <div class="table-add-button">
+            <a routerLink="/book/add">
+                <button type="button">Add Book</button>
+            </a>
+        </div>
+
+        <!-- Book Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Book Name</th>
+                    <th>Blurb</th>
+                    <th>Rental Price</th>
+                    <th>Adding Date</th>
+                    <th>Writer</th>
+                    <th>Genres</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through books and display them -->
+                <tr *ngFor="let book of books">
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.blurb }}</td>
+                    <td>{{ book.rentalPrice }}</td>
+                    <td>{{ book.addingDate }}</td>
+                    <td>{{ book.writer }}</td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let genre of book.genres">{{ genre }}</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/book/edit', book.id]">
+                            <button type="button" class="image-btn">
+                                <img src="assets/images/editing.png" alt="Edit">
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer Fragment -->
+    <app-footer></app-footer>
+</div>

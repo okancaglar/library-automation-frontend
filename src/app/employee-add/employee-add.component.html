@@ -1,0 +1,96 @@
+<app-general-navbar></app-general-navbar>
+
+<div class="form-wrapper">
+  <div class="add-form-wrapper">
+
+    <!-- Use (ngSubmit) to handle form submission and bind the form to the employee object -->
+    <form (ngSubmit)="onSubmit(employee)" #employeeForm="ngForm">
+
+      <div class="input-box">
+        <label for="employeeId">Employee ID</label>
+        <input
+          type="text"
+          id="employeeId"
+          name="employeeId"
+          [(ngModel)]="employee.id"
+          placeholder="ID"
+          required
+        >
+      </div>
+
+      <div class="input-box">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="employee.password"
+          placeholder="Password"
+          required
+        >
+      </div>
+
+      <div class="input-box">
+        <label for="employeeFirstname">First Name</label>
+        <input
+          type="text"
+          id="employeeFirstname"
+          name="employeeFirstname"
+          [(ngModel)]="employee.firstName"
+          placeholder="First Name"
+          required
+        >
+      </div>
+
+      <div class="input-box">
+        <label for="employeeLastname">Last Name</label>
+        <input
+          type="text"
+          id="employeeLastname"
+          name="employeeLastname"
+          [(ngModel)]="employee.lastName"
+          placeholder="Last Name"
+          required
+        >
+      </div>
+
+      <div class="input-box">
+        <label for="registrationDate">Registration Date</label>
+        <input
+          type="date"
+          id="registrationDate"
+          name="registrationDate"
+          [(ngModel)]="employee.registrationDate"
+          required
+        >
+      </div>
+
+      <div class="input-box">
+        <label for="dailyWage">Daily Wage</label>
+        <input
+          type="text"
+          id="dailyWage"
+          name="dailyWage"
+          [(ngModel)]="employee.dailyWage"
+          placeholder="Daily Wage"
+          required
+        >
+      </div>
+
+      <div class="input-box">
+        <label for="role">Role</label>
+        <input
+          type="text"
+          id="role"
+          name="role"
+          [(ngModel)]="employee.role"
+          placeholder="Role"
+          required
+        >
+      </div>
+
+      <button type="submit" class="form-add-button">Add</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>
